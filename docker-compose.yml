@@ -1,15 +1,15 @@
 services:
   childsong:
     image: cpsu/childsong:v0.2.4a
+    build: .
     ports:
       - "8000:8000"
-    stdin_open: true    # -i 옵션에 해당
-    tty: true           # -t 옵션에 해당
+    stdin_open: true # -i 옵션에 해당
+    tty: true # -t 옵션에 해당
     deploy:
       resources:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: ["1"]
-              capabilities: [gpu]
-
+              device_ids: [ "1" ]
+              capabilities: [ gpu ]

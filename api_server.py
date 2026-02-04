@@ -58,13 +58,7 @@ OUTPUT_EXTS = tuple(x.strip() for x in os.environ.get(
 ).split(",") if x.strip())
 
 # CORS origins (comma separated)
-CORS_ORIGINS = [x.strip() for x in os.environ.get(
-    "CORS_ORIGINS",
-    "http://localhost:5500,http://127.0.0.1:5500,"
-    "http://localhost:5173,http://127.0.0.1:5173,"
-    "http://localhost:8080,http://127.0.0.1:8080,"
-    "http://localhost:10030, *"
-).split(",") if x.strip()]
+CORS_ORIGINS = ["*"]
 
 # ---------------------------
 # App + in-process queue
@@ -80,7 +74,7 @@ app = FastAPI(
 # ---------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=CORS_ORIGINS,
     allow_credentials=False,  # 테스트 목적이면 False 권장
     allow_methods=["*"],
     allow_headers=["*"],

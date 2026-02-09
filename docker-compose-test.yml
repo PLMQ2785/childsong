@@ -1,13 +1,13 @@
 services:
-  childsong:
-    image: cpsu/childsong:v0.3.0b
+  childsong-test:
+    image: cpsu/childsong:v0.3.0-test
     build: .
     env_file:
       - .env
     ports:
-      - "8000:8000"
-    stdin_open: true # -i 옵션에 해당
-    tty: true # -t 옵션에 해당
+      - "8010:8000"
+    stdin_open: true
+    tty: true
     deploy:
       resources:
         reservations:

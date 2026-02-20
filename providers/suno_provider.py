@@ -136,7 +136,7 @@ async def extend_music(
     payload = {
         "defaultParamFlag": inp.get("default_param_flag", True),
         "audioId": inp["audio_id"],
-        "model": inp.get("model", "V4_5ALL"),
+        "model": inp.get("model", "V5"),
     }
     
     # Optional fields
